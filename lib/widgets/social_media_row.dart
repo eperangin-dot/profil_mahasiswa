@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class SocialMediaRow extends StatelessWidget {
   const SocialMediaRow({super.key});
-
   void _showSnackBar(BuildContext context, String name) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Anda mengklik $name'),
-        duration: const Duration(seconds: 2),
+        content: Text('$name diklik'),
+        duration: const Duration(seconds: 1),
       ),
     );
   }
@@ -17,37 +17,23 @@ class SocialMediaRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Instagram
         IconButton(
           icon: const Icon(Icons.camera_alt),
-          iconSize: 35,
           color: Colors.pink,
           tooltip: 'Instagram',
-          onPressed: () {
-            _showSnackBar(context, 'Instagram');
-          },
+          onPressed: () => _showSnackBar(context, 'Instagram'),
         ),
-
-        // LinkedIn
         IconButton(
-          icon: const Icon(Icons.business),
-          iconSize: 35,
+          icon: const Icon(Icons.work),
           color: Colors.blue,
           tooltip: 'LinkedIn',
-          onPressed: () {
-            _showSnackBar(context, 'LinkedIn');
-          },
+          onPressed: () => _showSnackBar(context, 'LinkedIn'),
         ),
-
-        // GitHub
         IconButton(
           icon: const Icon(Icons.code),
-          iconSize: 35,
-          color: Colors.black,
+          color: Colors.black87,
           tooltip: 'GitHub',
-          onPressed: () {
-            _showSnackBar(context, 'GitHub');
-          },
+          onPressed: () => _showSnackBar(context, 'GitHub'),
         ),
       ],
     );
